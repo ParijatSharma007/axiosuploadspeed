@@ -33,6 +33,9 @@ export default function Home() {
         let x = progressEvent.loaded / (timeElapsed/1000);
         setUploadSpeed(unitTransition(x));
         setEstimatedTime(Math.round(progressEvent.estimated));
+        if(progressEvent.estimated <= 1 && x !== 0){
+          setEstimatedTime(0)
+        }
       }
     },
   });
